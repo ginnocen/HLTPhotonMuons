@@ -27,15 +27,11 @@ void runL1HLT(TString inL1Name="openHLT.root")
 
   int L1_SingleMu3_BptxAND;
   int L1_SingleJet16_BptxAND;
-  int L1_SingleJet16_BptxANDfake;
   int L1_SingleEG18;
-  int L1_SingleEG18fake;
    
   TFile*inf=new TFile(inL1Name.Data());
   TTree *hltTree = (TTree*)inf->Get("hltbitanalysis/HltTree");
   hltTree->SetBranchAddress("L1_SingleMu3_BptxAND",&L1_SingleMu3_BptxAND);
-  hltTree->SetBranchAddress("L1_SingleJet16_BptxAND",&L1_SingleJet16_BptxAND);
-  hltTree->SetBranchAddress("L1_SingleEG18",&L1_SingleEG18);
 
 
   TTree *l1Tree = (TTree*)inf->Get("L1UpgradeAnalyzer/L1UpgradeTree");
@@ -56,11 +52,10 @@ void runL1HLT(TString inL1Name="openHLT.root")
   Long64_t entries = hltTree->GetEntries();
   
   int counter_L1_SingleMu3_BptxAND=0;
-  int counter_L1_SingleJet16_BptxANDfake=0;
   int counter_L1_SingleJet16_BptxAND=0;
-  
-  int counter_L1_SingleEG18fake=0;
   int counter_L1_SingleEG18=0;
+
+  int counter_L1_SingleMu3_BptxAND_and_L1_SingleJet16_BptxAND=0;
   
   
   int total=0;
@@ -86,29 +81,26 @@ void runL1HLT(TString inL1Name="openHLT.root")
 	    maxl1ptegamma = l1_egamma_hwPt[i];
       }
 
-	    //cout<<"maxl1pt="<<maxl1pt<<endl;
-      L1_SingleJet16_BptxANDfake=0;
-      L1_SingleEG18fake=0;
+      L1_SingleJet16_BptxAND=0;
+      L1_SingleEG18=0;
       
-      if(maxl1pt>=16) { L1_SingleJet16_BptxANDfake=1;}
-      if(maxl1ptegamma>=18) { L1_SingleEG18fake=1;}
+      if(maxl1pt>=36) { L1_SingleJet16_BptxAND=1;}
+      if(maxl1ptegamma>=18) { L1_SingleEG18=1;}
       
       if(L1_SingleJet16_BptxAND) counter_L1_SingleJet16_BptxAND++;
-      if(L1_SingleJet16_BptxANDfake) counter_L1_SingleJet16_BptxANDfake++;
-      
       if(L1_SingleEG18) counter_L1_SingleEG18++;
-      if(L1_SingleEG18fake) counter_L1_SingleEG18fake++;
+      if(L1_SingleMu3_BptxAND) counter_L1_SingleMu3_BptxAND++;
       
-      //if(L1_SingleMu3_BptxAND==1 && L1_SingleJet16_BptxANDfake==1) { cout<<"look here"<<std::endl; counter_L1_SingleMu3_BptxAND++; }
+      if(L1_SingleMu3_BptxAND && L1_SingleJet16_BptxAND) {counter_L1_SingleMu3_BptxAND_and_L1_SingleJet16_BptxAND++; }
   }
-  //cout<<"look counter_L1_SingleMu3_BptxAND="<<counter_L1_SingleMu3_BptxAND<<std::endl;
   //cout<<"look total="<<total<<std::endl;
   //double rate=(float)counter_L1_SingleMu3_BptxAND/(float)total;
   //cout<<"look rate (Hz)="<<rate*30000<<std::endl;
   
-  cout<<"counter_L1_SingleJet16_BptxANDfake="<<counter_L1_SingleJet16_BptxANDfake<<std::endl;
-  cout<<"counter_L1_SingleJet16_BptxAND="<<counter_L1_SingleJet16_BptxAND<<std::endl;
-  cout<<"counter_L1_SingleEG18fake="<<counter_L1_SingleEG18fake<<std::endl;
-  cout<<"counter_L1_SingleEG18="<<counter_L1_SingleEG18<<std::endl;
+  cout<<"rate_L1_SingleJet16_BptxAND="<<counter_L1_SingleJet16_BptxAND/(float)total*30000<<std::endl;
+  cout<<"rate_L1_SingleMu3_BptxAND="<<counter_L1_SingleMu3_BptxAND/(float)total*30000<<std::endl;
+  cout<<"rate_L1_SingleEG18="<<counter_L1_SingleEG18/(float)total*30000<<std::endl;
+  cout<<"rate_L1_SingleMu3_BptxAND_and_L1_SingleJet16_BptxAND="<<counter_L1_SingleMu3_BptxAND_and_L1_SingleJet16_BptxAND/(float)total*30000<<std::endl;
+  
 
 }
