@@ -22,7 +22,7 @@ const int MAXJETS = 500;
 const Int_t THRESHOLDS = 200; // This will correspond to 0 to 199.5 GeV in 0.5 GeV increments
 
 
-void runL1HLT(TString inL1Name="openHLT.root")
+void runL1HLT(int normal_rate=1, TString inL1Name="openHLT.root")
 {
 
   int L1_SingleMu3_BptxAND;
@@ -202,49 +202,50 @@ void runL1HLT(TString inL1Name="openHLT.root")
   }
   
   cout<<"*****************************="<<endl;
-  cout<<"rate_L1_SingleJet16_BptxAND="<<counter_L1_SingleJet16_BptxAND/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleJet18_BptxAND="<<counter_L1_SingleJet18_BptxAND/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleJet20_BptxAND="<<counter_L1_SingleJet20_BptxAND/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleJet24_BptxAND="<<counter_L1_SingleJet24_BptxAND/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleJet28_BptxAND="<<counter_L1_SingleJet28_BptxAND/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleJet32_BptxAND="<<counter_L1_SingleJet32_BptxAND/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleJet36_BptxAND="<<counter_L1_SingleJet36_BptxAND/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleJet40_BptxAND="<<counter_L1_SingleJet40_BptxAND/(float)total*30000<<std::endl;
+  //cout<<"rate_L1_SingleJet16_BptxAND="<<counter_L1_SingleJet16_BptxAND/(float)total*normal_rate<<std::endl;
+  //cout<<"rate_L1_SingleJet18_BptxAND="<<counter_L1_SingleJet18_BptxAND/(float)total*normal_rate<<std::endl;
+  //cout<<"rate_L1_SingleJet20_BptxAND="<<counter_L1_SingleJet20_BptxAND/(float)total*normal_rate<<std::endl;
+  //cout<<"rate_L1_SingleJet24_BptxAND="<<counter_L1_SingleJet24_BptxAND/(float)total*normal_rate<<std::endl;
+  //cout<<"rate_L1_SingleJet28_BptxAND="<<counter_L1_SingleJet28_BptxAND/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleJet32_BptxAND="<<counter_L1_SingleJet32_BptxAND/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleJet36_BptxAND="<<counter_L1_SingleJet36_BptxAND/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleJet40_BptxAND="<<counter_L1_SingleJet40_BptxAND/(float)total*normal_rate<<std::endl;
   
   cout<<"*****************************="<<endl;
-  cout<<"rate_L1_SingleMu3_BptxAND="<<counter_L1_SingleMu3_BptxAND/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleMu3_BptxAND="<<counter_L1_SingleMu5_BptxAND/(float)total*30000<<std::endl;
-  
+  cout<<"rate_L1_SingleMu3_BptxAND="<<counter_L1_SingleMu3_BptxAND/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleMu3_BptxAND="<<counter_L1_SingleMu5_BptxAND/(float)total*normal_rate<<std::endl;
+ /* 
   cout<<"*****************************="<<endl;
-  cout<<"rate_L1_SingleEG12="<<counter_L1_SingleEG12/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleEG14="<<counter_L1_SingleEG14/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleEG16="<<counter_L1_SingleEG16/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleEG18="<<counter_L1_SingleEG18/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleEG20="<<counter_L1_SingleEG20/(float)total*30000<<std::endl;
-  
+  cout<<"rate_L1_SingleEG12="<<counter_L1_SingleEG12/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleEG14="<<counter_L1_SingleEG14/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleEG16="<<counter_L1_SingleEG16/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleEG18="<<counter_L1_SingleEG18/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleEG20="<<counter_L1_SingleEG20/(float)total*normal_rate<<std::endl;
+ */ 
   cout<<"*****************************="<<endl;
-  cout<<"rate_L1_SingleMu3_AND_SingleJet16="<<counter_L1_SingleMu3_AND_SingleJet16/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleMu3_AND_SingleJet32="<<counter_L1_SingleMu3_AND_SingleJet32/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleMu3_AND_SingleJet36="<<counter_L1_SingleMu3_AND_SingleJet36/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleMu3_AND_SingleJet40="<<counter_L1_SingleMu3_AND_SingleJet40/(float)total*30000<<std::endl;
+  cout<<"rate_L1_SingleMu3_AND_SingleJet16="<<counter_L1_SingleMu3_AND_SingleJet16/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleMu3_AND_SingleJet32="<<counter_L1_SingleMu3_AND_SingleJet32/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleMu3_AND_SingleJet36="<<counter_L1_SingleMu3_AND_SingleJet36/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleMu3_AND_SingleJet40="<<counter_L1_SingleMu3_AND_SingleJet40/(float)total*normal_rate<<std::endl;
+  /*
   cout<<"*****************************="<<endl;
-  cout<<"rate_L1_SingleMu5_AND_SingleJet16="<<counter_L1_SingleMu5_AND_SingleJet16/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleMu5_AND_SingleJet32="<<counter_L1_SingleMu5_AND_SingleJet32/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleMu5_AND_SingleJet36="<<counter_L1_SingleMu5_AND_SingleJet36/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleMu5_AND_SingleJet40="<<counter_L1_SingleMu5_AND_SingleJet40/(float)total*30000<<std::endl;
+  cout<<"rate_L1_SingleMu5_AND_SingleJet16="<<counter_L1_SingleMu5_AND_SingleJet16/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleMu5_AND_SingleJet32="<<counter_L1_SingleMu5_AND_SingleJet32/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleMu5_AND_SingleJet36="<<counter_L1_SingleMu5_AND_SingleJet36/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleMu5_AND_SingleJet40="<<counter_L1_SingleMu5_AND_SingleJet40/(float)total*normal_rate<<std::endl;
   cout<<"*****************************="<<endl;
-  cout<<"rate_L1_SingleEG12_AND_SingleMu3="<<counter_L1_SingleEG12_AND_SingleMu3/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleEG14_AND_SingleMu3="<<counter_L1_SingleEG14_AND_SingleMu3/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleEG16_AND_SingleMu3="<<counter_L1_SingleEG16_AND_SingleMu3/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleEG18_AND_SingleMu3="<<counter_L1_SingleEG18_AND_SingleMu3/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleEG20_AND_SingleMu3="<<counter_L1_SingleEG20_AND_SingleMu3/(float)total*30000<<std::endl;
+  cout<<"rate_L1_SingleEG12_AND_SingleMu3="<<counter_L1_SingleEG12_AND_SingleMu3/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleEG14_AND_SingleMu3="<<counter_L1_SingleEG14_AND_SingleMu3/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleEG16_AND_SingleMu3="<<counter_L1_SingleEG16_AND_SingleMu3/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleEG18_AND_SingleMu3="<<counter_L1_SingleEG18_AND_SingleMu3/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleEG20_AND_SingleMu3="<<counter_L1_SingleEG20_AND_SingleMu3/(float)total*normal_rate<<std::endl;
   cout<<"*****************************="<<endl;
-  cout<<"rate_L1_SingleEG12_AND_SingleMu5="<<counter_L1_SingleEG12_AND_SingleMu5/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleEG14_AND_SingleMu5="<<counter_L1_SingleEG14_AND_SingleMu5/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleEG16_AND_SingleMu5="<<counter_L1_SingleEG16_AND_SingleMu5/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleEG18_AND_SingleMu5="<<counter_L1_SingleEG18_AND_SingleMu5/(float)total*30000<<std::endl;
-  cout<<"rate_L1_SingleEG20_AND_SingleMu5="<<counter_L1_SingleEG20_AND_SingleMu5/(float)total*30000<<std::endl;
-
+  cout<<"rate_L1_SingleEG12_AND_SingleMu5="<<counter_L1_SingleEG12_AND_SingleMu5/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleEG14_AND_SingleMu5="<<counter_L1_SingleEG14_AND_SingleMu5/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleEG16_AND_SingleMu5="<<counter_L1_SingleEG16_AND_SingleMu5/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleEG18_AND_SingleMu5="<<counter_L1_SingleEG18_AND_SingleMu5/(float)total*normal_rate<<std::endl;
+  cout<<"rate_L1_SingleEG20_AND_SingleMu5="<<counter_L1_SingleEG20_AND_SingleMu5/(float)total*normal_rate<<std::endl;
+*/
 
 
 }
